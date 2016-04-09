@@ -18,12 +18,6 @@ import Restaurant.Meal;
 
 public class Client extends User implements ClientObserver{
 	
-
-	//private String user_name;
-	//private String password;
-	//private String first_name;
-	//private String last_name;
-	
 	
 	private static final long serialVersionUID = 1861962790473617015L;
 	

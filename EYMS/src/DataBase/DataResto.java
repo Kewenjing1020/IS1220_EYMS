@@ -18,7 +18,7 @@ import Restaurant.Restaurant;
  */
 public class DataResto {
 	
-	public static String filePath="/Users/kewenjing/Desktop/EYMS/";
+	public static String filePath="D:/Cours_Centrale/2A/Software_Ingeneering/Project/EYMS";
 	
 	public static void main(String [] args) throws IOException{
 		Restaurant res1=new Restaurant("CHEZ LILY");

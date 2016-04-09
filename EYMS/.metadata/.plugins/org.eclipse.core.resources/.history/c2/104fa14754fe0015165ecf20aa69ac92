@@ -1,0 +1,101 @@
+package wenjing.lucas.Part1.EYMS.src.Part1;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ClientTest {
+
+	public static void main(String [] args) throws IOException{
+		BufferedReader typein = new BufferedReader(new InputStreamReader(System.in));
+
+		
+		/*
+		 * step 1: login/register
+		 */
+		System.out.println("Dear Sir/Miss, are you already registered in our site? (Y/N)");
+
+		String answer1 = typein.readLine();
+		String user_name = null;
+		String password = null;
+		
+		/*
+		 * Register a new user
+		 */
+		
+		if(answer1.equals("n")||answer1.equals("N")){		
+			System.out.println("The register will need your personal contact information");
+			
+			System.out.println("please type in your user-name");
+			String nov_username = typein.readLine();
+			
+			//traverse to make sure this username was never used
+			//read(user_name.txt) then establish a hashmap<username,password> or a table "String[] username"
+			//while(user_hashmap.find(username)){
+			while(nov_username.equals("a")){
+				System.out.println("this username is already registed");
+				System.out.println("please type in your user-name");
+				nov_username = typein.readLine();
+			}
+			
+			System.out.println("please type in your first-name");
+			String nov_firstname=typein.readLine();
+			System.out.println("please type in your last-name");
+			String nov_lastname=typein.readLine();
+			System.out.println("your e-mail+phone number+adress");
+			
+			//to complete
+			
+			//to store the info
+			//register(nov_username, nov_first_name, nov_last_name,);
+			user_name=nov_username;
+			//password=this_password;
+			
+		}
+		
+		/**
+		 * login user
+		 */
+		
+		if(answer1.equals("y")||answer1.equals("Y")){			
+			System.out.println("login in");
+			System.out.println("username");
+			System.out.println("password");
+			String ans2=typein.readLine();
+			//search for the concerning file
+			
+			//verify if the password is correct
+
+		}
+		
+		//finish the login
+		//login(username,password)  -> to login client's information
+		
+		/*
+		 * step 2: ordering a meal
+		 */
+		
+		//propose the available meals
+		System.out.println("list of your favorite meals");
+		System.out.println();
+		
+		//choose from his favorite list
+		
+		//choose a restaurant
+		
+		//open the restaurant_file
+		
+		//do the command
+		
+		//get price
+		
+		
+		/**
+		 * step3: verify the order
+		 */
+		
+		//print out the order
+		
+		
+	}
+}

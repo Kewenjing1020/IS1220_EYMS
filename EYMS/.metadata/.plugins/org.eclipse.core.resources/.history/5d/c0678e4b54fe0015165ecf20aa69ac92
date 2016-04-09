@@ -1,0 +1,27 @@
+package Part1;
+
+import wenjing.lucas.Part1.EYMS.src.Part1.Restaurant;
+
+public class LoginClient implements Login{
+
+	@Override
+	public void login(Restaurant resto, String username, String password) {
+		System.out.println("Hi I want to connect");
+		System.out.println("Please enter your username and your password:");
+		System.out.println("username: " + username);
+		System.out.println("password: " + password);
+		boolean isIdentify = resto.identify(resto, username, password);
+		if(isIdentify)
+		{
+			//to complete
+		}
+		else
+		{
+			System.out.println("Please try again later or register you");
+		}
+		
+		
+	}
+
+	
+}

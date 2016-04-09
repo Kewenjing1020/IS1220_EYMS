@@ -1,0 +1,6 @@
+package Command;
+
+public interface Login {
+
+	public void login(Restaurant resto, String username, String password);
+}
