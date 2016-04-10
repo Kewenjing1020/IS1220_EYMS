@@ -47,6 +47,11 @@ succed in loging the new Al_Restaurant database
 users=[Personnel [user_name=chef1username, first_name=chef1firstName, last_name=chef1lastName, password=chef1password]], 
 meals=[Meal:dish_name1, ingredient_detail=ingredient_detail1, price=5.5, special_price=4.0, stock=10, quantity need for client=1, 
 Meal:dish_name2, ingredient_detail=ingredient_detail2, price=5.5, special_price=4.0, stock=20, quantity need for client=1
+
+Restaurant [Resto_name=resto1, password=resto_password, 
+users=[Personnel [user_name=chef1username, first_name=chef1firstName, last_name=chef1lastName, password=chef1password]],
+meals=[Meal:dish_name1, ingredient_detail=ingredient_detail1, price=5.5, special_price=4.0, stock=10, quantity need for client=1
+, Meal:dish_name2, ingredient_detail=ingredient_detail2, price=5.5, special_price=4.0, stock=20, quantity need for client=1
 ]]]
 
  * @author kewenjing
@@ -110,9 +115,15 @@ public class Test1 {
 		res1.createMeal(e1);
 		res1.createMeal(e2);
 		
+		Restaurant res2=new Restaurant("resto1", "resto_password");
+		res2.insertChef("chef1firstName", "chef1lastName", "chef1username", "chef1password");
+		res2.createMeal(e1);
+		res2.createMeal(e2);
+		
 		//create a ArrayList<Restaurant> Resto, read the Log RestoData
 		ArrayList<Restaurant> Resto= new ArrayList<Restaurant>();
 		Resto.add(res1);
+		Resto.add(res2);
 		DataResto.Log_RestoData(Resto);
 		
 		

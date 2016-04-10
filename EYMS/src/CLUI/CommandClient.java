@@ -23,8 +23,6 @@ public class CommandClient {
 		System.out.println("Dear Sir/Miss, are you already registered in our site? (Y/N)");
 			
 		String answer = typein.readLine();
-		String user_name = null;
-		String password = null;
 		
 		while(true){		
 		/*
