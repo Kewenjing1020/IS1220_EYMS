@@ -6,54 +6,62 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import DataBase.DataClient;
+import FidelityCard.LotteryFidelityCard;
+import FidelityCard.PointFidelityCard;
 import User.Client;
 
 public class CommandClient {
 	
 	public static void main(String [] args) throws IOException{
 		BufferedReader typein = new BufferedReader(new InputStreamReader(System.in));
+		String delim="[ ,<>()]+";
 		
 		ArrayList<Client> all_clients= DataClient.Load_ClientData();
+
+		Client curr_client=new Client();
 		
-		//Client thisCustomer=new Client();
+		String answer = new String();
+			
 		
-		/*
+		
+		/**
 		 * step 1: login/register
 		 */
+		while(true){	
 		System.out.println("Dear Sir/Miss, are you already registered in our site? (Y/N)");
-			
-		String answer = typein.readLine();
+		answer = typein.readLine();
+		if(answer.equals("n")||answer.equals("N")){	
+			CL_clientLogin.Register_start(curr_client);
+			curr_client=CL_clientLogin.Register(all_clients,curr_client);
+			break;
+		}
+	
+		else if(answer.equals("Y")||answer.equals("y")){
+			CL_clientLogin.Login_start(curr_client);
+			curr_client=CL_clientLogin.Login(all_clients,curr_client);
+			System.out.println(curr_client);
+			break;
+		}else{
+			System.out.println("Invalid input");
+			continue;
+		}
+		}
 		
-		while(true){		
-		/*
-		 * Register a new user
+		curr_client=all_clients.get(0);
+		System.out.println(curr_client);
+		
+		/**
+		 * order a meal
 		 */
 		
-		if(answer.equals("n")||answer.equals("N")){		
-			System.out.println("The register will need your personal contact information");
+		
+		
+		
+		
+		
+	}
+}
 			
-			
-			String delim="[ <>()]+";
-			
-			while(true){
-				System.out.println("please type in your personnal information in the form of \n"
-					+ " registerClient <firstName, lastName, username, password>");
-				answer = typein.readLine();
-				String[] cmdline=answer.split(delim);
-				if(cmdline.length != 5 ||!(cmdline[0].equals("registerClient"))){
-					System.out.println(cmdline.length);
-					System.out.println("Invalid Input.");
-					continue;
-				}else if(!DataClient.verify(all_clients, cmdline[3])){
-					continue;
-				}else{
-					
-				}
-				
-				
-			}
-		}
-		}
 
 //			while(user_name.equals("a")){
 //				System.out.println("this username is already registed");
@@ -155,7 +163,3 @@ public class CommandClient {
 		
 		//print out the order
 		
-		
-		}	
-	
-}

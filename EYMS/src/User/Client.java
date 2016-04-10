@@ -85,6 +85,11 @@ public class Client extends User implements ClientObserver{
 
 	public Client() {
 		super();
+		this.email = new ArrayList<String>();
+		this.phone_number = new ArrayList<String>();
+		this.address = new ArrayList<String>();
+		this.fidelityCard = new BasicFidelityCard();
+		this.deliveryInfo=new ArrayList<Delivery> ();
 //<<<<<<< HEAD
 //=======
 //		this.login = new LoginClient();
@@ -178,13 +183,6 @@ public class Client extends User implements ClientObserver{
 		this.email = new ArrayList<String>();
 		this.phone_number = new ArrayList<String>();
 		this.address = new ArrayList<String>();
-//<<<<<<< HEAD
-//		this.authorization=true;
-//
-//=======
-//		this.login = new LoginClient();
-//		this.register = new RegisterClient();
-//>>>>>>> 64b066b74918337b65dc7a82db04b4322fbd28d3
 		this.fidelityCard = new BasicFidelityCard();
 		this.deliveryInfo=new ArrayList<Delivery> ();
 	}

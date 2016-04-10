@@ -34,6 +34,7 @@ public class CommandMain {
 				System.out.println("Invalid Input.");
 				continue;
 			}
+			
 		}
 		
 		

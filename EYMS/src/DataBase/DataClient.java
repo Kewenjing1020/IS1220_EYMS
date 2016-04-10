@@ -20,29 +20,6 @@ import User.*;
  *
  */
 public class DataClient{
-		
-
-	public static String filePath="Users/Lucas/workspace/EYMS";
-
-	
-	public static void main(String [] args){
-		ArrayList<Client> clients=new ArrayList<Client>();
-		clients.add(new Client("emma","12345"));
-		clients.add(new Client("lily","34567"));
-		System.out.println(clients);
-		Log_ClientData(clients);
-		ArrayList<Client> clients2=new ArrayList<Client>();
-		clients2=Load_ClientData();
-		Client emma=clients2.get(0);
-		System.out.println(emma.getPassword());
-		//System.out.println(emma);
-		emma.add_phone_number("680962887");
-		System.out.println(emma);
-		clients=refresh_clientdata(emma, clients);
-		System.out.println(clients);
-	}
-	
-	
 	
 	/**
 	 * open the client database, load the All_client info, before all the operation
@@ -119,15 +96,15 @@ public class DataClient{
 	 * @return
 	 */
 	
-	public static void tryLogin(ArrayList<Client> all_clients, String username, String password) throws ClientNotFound{
+	public static Boolean tryLogin(ArrayList<Client> all_clients, String username, String password) {
 		for(int i=0; i<all_clients.size();i++ ){
 			Client client=(Client)all_clients.get(i);
 			if(client.getUser_name().equals(username) && client.getPassword().equals(password)){
-				System.out.println("Welcome back!"+username);
-				return ;
+				//System.out.println("Welcome back!"+username);
+				return true;
 			}
 		}
-		throw new ClientNotFound(username, password);
+		return false;
 	}
 	
 	/**
@@ -139,14 +116,30 @@ public class DataClient{
 	 * @return
 	 */
 	
-	public static void login(String username, String password) {
+	public static Client login(String username, String password) {
 		ArrayList<Client> all_clients = DataClient.Load_ClientData();
-		try {
-			DataClient.tryLogin(all_clients, username, password);
-		} catch (ClientNotFound e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		for(int i=0; i<all_clients.size();i++ ){
+			Client client=(Client)all_clients.get(i);
+			if(client.getUser_name().equals(username) && client.getPassword().equals(password)){
+				System.out.println("Welcome back! "+username);
+				return client;
+			}
 		}
+		System.out.println("fail to login");
+		return null;
+		
+	}
+	
+	public static Client login(ArrayList<Client> all_clients, String username, String password) {
+		for(int i=0; i<all_clients.size();i++ ){
+			Client client=(Client)all_clients.get(i);
+			if(client.getUser_name().equals(username) && client.getPassword().equals(password)){
+				System.out.println("Welcome back! "+username);
+				return client;
+			}
+		}
+		System.out.println("fail to login");
+		return null;
 		
 	}
 	
