@@ -21,7 +21,6 @@ import User.*;
  */
 public class DataClient{
 		
-	public static String filePath="/Users/kewenjing/Desktop/EYMS/";
 	
 	public static void main(String [] args){
 		ArrayList<Client> clients=new ArrayList<Client>();
@@ -54,7 +53,7 @@ public class DataClient{
             /**
              * Deserializing the object
              */
-            clients = (ArrayList<Client>) Serializer.deserialize(filePath+"Client_database.txt");
+            clients = (ArrayList<Client>) Serializer.deserialize("Client_database.txt");
             System.out.println("succed in loading the new All_client database");
             System.out.println(clients);
           
@@ -78,8 +77,8 @@ public class DataClient{
             /**
              *  Serializing the object
              */
-			new File(filePath+"Client_database.txt").delete();
-            Serializer.serialize(clients, filePath+"Client_database.txt");
+			new File("Client_database.txt").delete();
+            Serializer.serialize(clients, "Client_database.txt");
             System.out.println("succed in loging the new All_clients database");
             System.out.println(clients);
           

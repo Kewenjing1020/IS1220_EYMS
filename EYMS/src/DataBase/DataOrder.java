@@ -33,8 +33,8 @@ public class DataOrder {
             /**
              *  Serializing the object
              */
-			new File(DataClient.filePath+"Order_database.txt").delete();
-            Serializer.serialize(Orders, DataClient.filePath+"Order_database.txt");
+			new File("Order_database.txt").delete();
+            Serializer.serialize(Orders, "Order_database.txt");
             System.out.println("succed in loging the new Order database");
             System.out.println(Orders);
           
@@ -56,7 +56,7 @@ public class DataOrder {
             /**
              * Deserializing the object
              */
-			Orders = (ArrayList<Order>) Serializer.deserialize(DataClient.filePath+"Order_database.txt");
+			Orders = (ArrayList<Order>) Serializer.deserialize("Order_database.txt");
             System.out.println("succed in loading the new Order database");
             System.out.println(Orders);
           
