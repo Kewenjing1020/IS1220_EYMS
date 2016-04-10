@@ -118,9 +118,13 @@ public class Order implements Serializable{
 		return delivery_info;
 	}
 
-	public void setDelivery_info(Delivery delivery_info) {
-		this.delivery_info = delivery_info;
+	public void setDelivery_info(String contactname, String phonenumber, String adress) {
+		this.delivery_info.setContactname(contactname) ;
+		this.delivery_info.setAdress(adress);
+		this.delivery_info.setPhonenumber(phonenumber);
 	}
+	
+	
 	public String getClient_username() {
 		return client_username;
 	}

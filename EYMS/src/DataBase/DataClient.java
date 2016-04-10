@@ -171,12 +171,6 @@ public class DataClient{
 			while(client.getUser_name().equals(client_old.getUser_name()) && client.getPassword().equals(client_old.getPassword())){
 				
 				all_clients.set(i, client);
-				
-//				client_old.setAddress(client.getAddress());
-//				client_old.setEmail(client.getEmail());
-//				client_old.setPhone_number(client.getPhone_number());
-//				client_old.setFavorite_meals(client.getFavorite_meals());
-//				client_old.setContacter_names(client.getContacter_names());
 				System.out.println("succed in load client's new info");
 				return all_clients;
 			}

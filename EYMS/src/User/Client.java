@@ -3,11 +3,11 @@ package User;
 
 import java.util.ArrayList; 
 
+
 import FidelityCard.BasicFidelityCard;
 import FidelityCard.FidelityCardVisitor;
 import Operation.ClientObserver;
-import Operation.LoginClient;
-import Operation.RegisterClient;
+import Part1.Delivery;
 import Restaurant.Meal;
 
 /**
@@ -49,6 +49,8 @@ public class Client extends User implements ClientObserver{
 	private ArrayList<String> phone_number;
 	private ArrayList<String> address;
 	private ArrayList<Meal> favorite_meals;
+
+	private ArrayList<Delivery> deliveryInfo;
 	
 	/**
 	 * 
@@ -84,25 +86,20 @@ public class Client extends User implements ClientObserver{
 	}
 
 
-	/**
-	 * 
-	 */
+
+
+
 	public Client() {
 		super();
-		this.authorization= true;
-		this.login = new LoginClient();
-		this.register = new RegisterClient();
-		this.fidelityCard = new BasicFidelityCard();
 	}
-
-
+	
 
 	@Override
 	public String toString() {
 		return "Client [user_name=" + user_name + ", first_name=" + first_name + ", last_name=" + last_name
 				+ ", password=" + password + ", authorization=" + authorization + ", birthday=" + birthday + ", fidelityCard=" + fidelityCard
 				+ ", contacter_names=" + contacter_names + ", email=" + email + ", phone_number=" + phone_number
-				+ ", address=" + address + ", favorite_meals=" + favorite_meals + "]";
+				+ ", address=" + address + ", deliveryInfo="+deliveryInfo+", favorite_meals=" + favorite_meals + "]";
 	}
 
 	
@@ -122,6 +119,7 @@ public class Client extends User implements ClientObserver{
 		this.authorization=true;
 		this.contacter_names=new ArrayList<String>();
 		contacter_names.add(last_name+" "+first_name);
+		this.deliveryInfo=new ArrayList<Delivery> ();
 	}
 
 	/**
@@ -137,9 +135,8 @@ public class Client extends User implements ClientObserver{
 		this.address = new ArrayList<String>();
 		this.authorization= true;
 		this.contacter_names=new ArrayList<String>();
-		this.login = new LoginClient();
-		this.register = new RegisterClient();
 		this.fidelityCard = new BasicFidelityCard();
+		this.deliveryInfo=new ArrayList<Delivery> ();
 	}
 	
 	
@@ -162,9 +159,10 @@ public class Client extends User implements ClientObserver{
 		this.authorization=true;
 		this.contacter_names=new ArrayList<String>();
 		contacter_names.add(last_name+" "+first_name);
-		this.login = new LoginClient();
-		this.register = new RegisterClient();
+//		this.login = new LoginClient();
+//		this.register = new RegisterClient();
 		this.fidelityCard = new BasicFidelityCard();
+		this.deliveryInfo=new ArrayList<Delivery> ();
 		
 	}
 	
@@ -183,9 +181,9 @@ public class Client extends User implements ClientObserver{
 		this.phone_number = new ArrayList<String>();
 		this.address = new ArrayList<String>();
 		this.authorization=true;
-		this.login = new LoginClient();
-		this.register = new RegisterClient();
+
 		this.fidelityCard = new BasicFidelityCard();
+		this.deliveryInfo=new ArrayList<Delivery> ();
 	}
 	
 	/**
@@ -196,9 +194,19 @@ public class Client extends User implements ClientObserver{
 		super();
 		this.fidelityCard = fidelityCard;
 		this.authorization=true;
-		this.login = new LoginClient();
-		this.register = new RegisterClient();
+
 	}
+	
+
+	public void add_contactInfo(String contactname, String phonenumber, String adress){
+		Delivery new_deliveryInfo=new Delivery(contactname, phonenumber, adress);
+		this.deliveryInfo.add(new_deliveryInfo);
+		this.contacter_names.add(new_deliveryInfo.getContactname());
+		this.address.add(new_deliveryInfo.getAdress());
+		this.phone_number.add(new_deliveryInfo.getPhonenumber());
+	}
+
+	
 	
 	public void addPoint(int points){
 		this.fidelityCard.point += points;		
@@ -217,23 +225,34 @@ public class Client extends User implements ClientObserver{
 	}
 	
 	public void add_email(String new_email){
-		
+		if(this.getAddress().contains(new_email))
+			return;
 		this.email.add(new_email);	
 	}
 	
 	public void add_phone_number(String new_phone_number){
+		if(this.getPhone_number().contains(new_phone_number))
+			return;
 		this.phone_number.add(new_phone_number);
 	}
 	
 	public void add_address(String new_address){
+		if(this.getAddress().contains(new_address))
+			return;
 		this.address.add(new_address);
 	}
 	
 	public void add_favorite_meal(Meal meal){
+		if(this.favorite_meals.contains(meal)){
+			System.out.println("this meal already in your favorite list");
+			return;
+		}
 		this.favorite_meals.add(meal);
 	}
 	
 	public void add_contactname(String contactName){
+		if (this.getContacter_names().contains(contactName))
+			return;
 		this.contacter_names.add(contactName);
 	}
 	
@@ -334,6 +353,14 @@ public class Client extends User implements ClientObserver{
 
 	public void setContacter_names(ArrayList<String> contacter_names) {
 		this.contacter_names = contacter_names;
+	}
+
+	public ArrayList<Delivery> getDeliveryInfo() {
+		return deliveryInfo;
+	}
+
+	public void setDeliveryInfo(ArrayList<Delivery> deliveryInfo) {
+		this.deliveryInfo = deliveryInfo;
 	}
 
 

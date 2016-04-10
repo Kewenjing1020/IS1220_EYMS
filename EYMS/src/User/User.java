@@ -2,9 +2,6 @@ package User;
 
 import java.io.Serializable;
 
-import Operation.Login;
-import Operation.Register;
-
 /**
  * Abstract class for User of Restaurant: Client and Personnel
  * It allows to extend the project in a more flexible way using inheritance.
@@ -26,28 +23,24 @@ public abstract class User implements Serializable{
 	protected String first_name = " ";
 	protected String last_name = " ";
 	protected String password = " ";
-	//each user can have a specific method to connect
-	protected Login login;
-	//each user have a specific method to register
-	protected Register register;
 	
 	
 	/**
 	 * Method which allows an user to login
 	 */
-	public void tryLogin(){
-		login.login(this);
-	}
-	
-	/**
-	 * Method which allows an user to register and add him to the DataBase
-	 */
-	public void register(){
-		register.register(this.getFirstName(), this.getLastName(), 
-						  this.getUsername(), this.getPassword());
-	}
-	
-	
+//	public void tryLogin(){
+//		login.login(this);
+//	}
+//	
+//	/**
+//	 * Method which allows an user to register and add him to the DataBase
+//	 */
+//	public void register(){
+//		register.register(this.getFirstName(), this.getLastName(), 
+//						  this.getUsername(), this.getPassword());
+//	}
+//	
+//	
 	/**
 	 * @param username
 	 * @param password

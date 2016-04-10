@@ -33,12 +33,9 @@ public class TestDataClient {
 		clients=DataClient.refresh_clientdata(emma, clients);
 		System.out.println(clients);
 		
-		emma.tryLogin();
 		Client adrien = new Client("adrien","04538","Adrien","Michel");
 		clients.add(adrien);
 		System.out.println(adrien);
-		adrien.register();
-		adrien.tryLogin();
 		adrien.add_address("centrale paris");
 		DataClient.Log_ClientData(clients);
 	}

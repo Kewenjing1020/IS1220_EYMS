@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import User.User;
+
 /**
  * 
  * @author kewenjing
@@ -21,6 +23,7 @@ public class Restaurant implements Serializable{
 	 * Attributes
 	 */
 	private String Resto_name;
+	private String Resto_password;
 	private ArrayList<Personnel> users;
 	private ArrayList<Meal> meals;
 	
@@ -29,10 +32,19 @@ public class Restaurant implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Restaurant [Resto_name=" + Resto_name + ", users=" + users + ", meals=" + meals + "]";
+		return "Restaurant [Resto_name=" + Resto_name + ", password="+Resto_password+", users=" + users + ", meals=" + meals + "]";
 	}
 	
 	
+	public Restaurant(String resto_name, String resto_password) {
+		super();
+		Resto_name = resto_name;
+		Resto_password = resto_password;
+		this.meals=new ArrayList<Meal>();
+		this.users=new ArrayList<Personnel>();
+	}
+
+
 	/*
 	 * Getters and Setters
 	 */
@@ -73,6 +85,12 @@ public class Restaurant implements Serializable{
 		super();
 		this.meals=new ArrayList<Meal>();
 		this.users=new ArrayList<Personnel>();
+	}
+
+	public void insertChef(String firstName,String lastName, String username, String password){
+		Personnel chef=new Personnel(firstName, lastName, username, password);
+		
+		
 	}
 	
 	public void createMeal(Meal e){
@@ -138,5 +156,15 @@ public class Restaurant implements Serializable{
 			e.setSpecial_price((double) -1);
 		}
 
+	}
+
+
+	public String getResto_password() {
+		return Resto_password;
+	}
+
+
+	public void setResto_password(String resto_password) {
+		Resto_password = resto_password;
 	}
 }

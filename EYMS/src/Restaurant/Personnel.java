@@ -32,6 +32,13 @@ public class Personnel implements Serializable{
 		this.username = username;
 		this.password = password;
 	}
+	
+	public Personnel(String firstName,String lastName, String username, String password){
+		this.firstName=firstName;
+		this.lastName=lastName;
+		this.username=username;
+		this.password=password;
+	}
 
 	/**
 	 * Getters and Setters
