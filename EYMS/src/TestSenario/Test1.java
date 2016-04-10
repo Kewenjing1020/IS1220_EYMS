@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import DataBase.DataClient;
 import FidelityCard.BasicFidelityCard;
 import FidelityCard.PointFidelityCard;
+import Restaurant.Meal;
 import User.Client;
 
 /**
@@ -57,7 +58,7 @@ public class Test1 {
 		DataClient.Log_ClientData(clients);
 		
 		
-		
+		Meal e1=new Meal();
 		
 		
 	

@@ -1,0 +1,72 @@
+pa
+
+import java.util.ArrayList;
+
+public class Client extends User{
+	
+	/*
+	 * Attributes
+	 */
+	
+	//authorization allows to know whether a client want to receive promotions or not
+	private Boolean authorization;
+	private ArrayList<Integer> birthday;
+	private ArrayList<Integer> phone;
+	private String email;
+	private ArrayList<Meal> favorite_meal;
+	private FidelityCard fidelityCard; 
+	
+	/*
+	 * Constructor
+	 */
+	
+	
+	
+	/*
+	 * Getters and Setters
+	 */
+	
+	public Boolean getAuthorization() {
+		return authorization;
+	}
+	public void setAuthorization(Boolean authorisation) {
+		this.authorization = authorisation;
+	}
+	public ArrayList<Integer> getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(ArrayList<Integer> birthday) {
+		this.birthday = birthday;
+	}
+	public ArrayList<Integer> getPhone_number() {
+		return phone_number;
+	}
+	public void setPhone_number(ArrayList<Integer> phone_number) {
+		this.phone_number = phone_number;
+	}
+	public String getMail_adress() {
+		return mail_adress;
+	}
+	public void setMail_adress(String mail_adress) {
+		this.mail_adress = mail_adress;
+	}
+	public ArrayList<Meal> getFavorite_meal() {
+		return favorite_meal;
+	}
+	public void setFavorite_meal(ArrayList<Meal> favorite_meal) {
+		this.favorite_meal = favorite_meal;
+	}
+	
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+
+	
+}

@@ -1,6 +1,6 @@
 package DataBase;
 
-import java.io.File;
+import java.io.File; 
 import java.io.IOException; 
 
 import java.util.ArrayList;
@@ -21,6 +21,9 @@ import User.*;
  */
 public class DataClient{
 		
+
+	public static String filePath="Users/Lucas/workspace/EYMS";
+
 	
 	public static void main(String [] args){
 		ArrayList<Client> clients=new ArrayList<Client>();

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="/Users/kewenjing/Downloads/EYMS-master.zip"/>
+			<item value="/Users/kewenjing/Desktop/EYMS/EYMS.zip"/>
+			<item value="/Users/kewenjing/百度云同步盘/COURS/COURS-ANNEÉ5/IS1220Software engineering/project_0315.zip"/>
+		</list>
+	</section>
+</section>

@@ -18,19 +18,13 @@ import Restaurant.Meal;
 
 public class Client extends User implements ClientObserver{
 	
-
-	//private String user_name;
-	//private String password;
-	//private String first_name;
-	//private String last_name;
-	
 	
 	private static final long serialVersionUID = 1861962790473617015L;
 	
 	//I have suppressed the attribute point because it is include to fidelity card
 	//furthermore all client doesn't have point, only those you have the PointFidelityCard
 	//private int points;
-	private Boolean authorization = true;
+	private Boolean authorization = false;
 	private String birthday = " ";
 	private FidelityCardVisitor fidelityCard;
 
@@ -91,6 +85,12 @@ public class Client extends User implements ClientObserver{
 
 	public Client() {
 		super();
+<<<<<<< HEAD
+=======
+		this.login = new LoginClient();
+		this.register = new RegisterClient();
+		this.fidelityCard = new BasicFidelityCard();
+>>>>>>> 64b066b74918337b65dc7a82db04b4322fbd28d3
 	}
 	
 
@@ -133,7 +133,6 @@ public class Client extends User implements ClientObserver{
 		this.email = new ArrayList<String>();
 		this.phone_number = new ArrayList<String>();
 		this.address = new ArrayList<String>();
-		this.authorization= true;
 		this.contacter_names=new ArrayList<String>();
 		this.fidelityCard = new BasicFidelityCard();
 		this.deliveryInfo=new ArrayList<Delivery> ();
@@ -156,7 +155,6 @@ public class Client extends User implements ClientObserver{
 		this.email = new ArrayList<String>();
 		this.phone_number = new ArrayList<String>();
 		this.address = new ArrayList<String>();
-		this.authorization=true;
 		this.contacter_names=new ArrayList<String>();
 		contacter_names.add(last_name+" "+first_name);
 //		this.login = new LoginClient();
@@ -180,8 +178,13 @@ public class Client extends User implements ClientObserver{
 		this.email = new ArrayList<String>();
 		this.phone_number = new ArrayList<String>();
 		this.address = new ArrayList<String>();
+<<<<<<< HEAD
 		this.authorization=true;
 
+=======
+		this.login = new LoginClient();
+		this.register = new RegisterClient();
+>>>>>>> 64b066b74918337b65dc7a82db04b4322fbd28d3
 		this.fidelityCard = new BasicFidelityCard();
 		this.deliveryInfo=new ArrayList<Delivery> ();
 	}
@@ -193,6 +196,7 @@ public class Client extends User implements ClientObserver{
 	public Client(FidelityCardVisitor fidelityCard){
 		super();
 		this.fidelityCard = fidelityCard;
+<<<<<<< HEAD
 		this.authorization=true;
 
 	}
@@ -206,6 +210,14 @@ public class Client extends User implements ClientObserver{
 		this.phone_number.add(new_deliveryInfo.getPhonenumber());
 	}
 
+=======
+		this.login = new LoginClient();
+		this.register = new RegisterClient();
+	}
+	
+	
+	
+>>>>>>> 64b066b74918337b65dc7a82db04b4322fbd28d3
 	
 	
 	public void addPoint(int points){

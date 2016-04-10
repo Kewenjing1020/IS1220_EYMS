@@ -22,10 +22,8 @@ public class Meal implements Serializable, Visitable{
 	private String ingredient_detail;
 	private Double price;
 	private Double special_price;
-	
-	
-	
-	
+	protected Integer stock;
+	protected Integer quantity;
 	
 
 	@Override
@@ -48,8 +46,7 @@ public class Meal implements Serializable, Visitable{
 		this.quantity = quantity;
 	}
 
-	protected Integer stock;
-	protected Integer quantity;
+	
 	/**
 	 * @param dish_name
 	 * @param ingredient_detail

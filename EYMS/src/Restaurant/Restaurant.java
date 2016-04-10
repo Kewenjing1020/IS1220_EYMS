@@ -89,7 +89,11 @@ public class Restaurant implements Serializable{
 
 	public void insertChef(String firstName,String lastName, String username, String password){
 		Personnel chef=new Personnel(firstName, lastName, username, password);
-		
+		if(this.getUsers().contains(chef)){
+			System.out.println("this chef already existe in the restaurant");
+			
+		}else 
+			this.users.add(chef);
 		
 	}
 	

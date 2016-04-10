@@ -1,0 +1,17 @@
+package wenjing.lucas.Part1.EYMS.src.Part1;
+
+/**
+ * Scenario /Register a user/
+ * @author kewenjing
+ *
+ */
+
+public class Scenario2 {
+	public static void main(String [] args){
+		registerUser("test2input.txt","test2output.txt");
+	}
+	
+	public static void registerUser(String input,String output){
+		
+	}
+}
