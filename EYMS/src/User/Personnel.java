@@ -18,6 +18,14 @@ public class Personnel extends User{
 		this.password=password;
 	}
 
+	@Override
+	public String toString() {
+		return "Personnel [user_name=" + user_name + ", first_name=" + first_name + ", last_name=" + last_name
+				+ ", password=" + password + "]";
+	}
+	
+	
+
 
 
 }

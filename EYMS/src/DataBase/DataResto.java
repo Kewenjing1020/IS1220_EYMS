@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import Restaurant.Meal;
-import Restaurant.Personnel;
 import Restaurant.Restaurant;
 
 /**
@@ -31,7 +30,7 @@ public class DataResto {
 		
 		
 		//register a new personnel
-		Personnel chef=new Personnel("chef", "imchef");
+		User.Personnel chef=new User.Personnel("chef", "imchef");
 		verify(Restaurants,chef.getUsername() );
 		Register(Restaurants, "Antony",chef );
 		
@@ -228,7 +227,7 @@ public class DataResto {
 	 * @param personnel
 	 * @return
 	 */
-	public static ArrayList<Restaurant> Register(ArrayList<Restaurant>  All_Restaurants,  String Resto_name, Personnel personnel){
+	public static ArrayList<Restaurant> Register(ArrayList<Restaurant>  All_Restaurants,  String Resto_name, User.Personnel personnel){
 		Restaurant curr_resto=find_resto(All_Restaurants, Resto_name);
 		curr_resto.getUsers().add(personnel);
 		System.out.println("succed in registering!");

@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import User.Personnel;
 import User.User;
 
 /**
@@ -98,20 +99,31 @@ public class Restaurant implements Serializable{
 	}
 	
 	public void createMeal(Meal e){
-		int count=0;
+		this.meals.add(e);
+	}
+	
+	public Meal createMeal(String Mealname, Double price){
+		
 		for(int i=0; i<this.getMeals().size();i++){
-			if(this.getMeals().get(i).getDish_name().equals(e.getDish_name())){
+			if(this.getMeals().get(i).getDish_name().equals(Mealname)){
 				System.out.println("this meal already existe in your menu");
 				
-				count=1;
-				break;
-			}
 				
+				return null;
+			}		
 		}
-		if(count==0){
-			this.getMeals().add(e);
-			System.out.println("succed in add this meal");
-		}
+		Meal e=new Meal();
+		e.setDish_name(Mealname);
+		e.setPrice(price);
+		this.getMeals().add(e);
+			
+		System.out.println("succed in add this meal");
+		return e;
+	}
+	
+	public Meal addIngredient (Meal e,String ingredientDetail){
+		e.setIngredient_detail(ingredientDetail);
+		return e;
 	}
 	
 	public void putInSpecialOffer(String mealName, Double price){

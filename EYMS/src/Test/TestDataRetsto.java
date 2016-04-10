@@ -2,13 +2,13 @@ package Test;
 
 import java.io.IOException;
 
+
 import java.util.ArrayList;
 
 
 import DataBase.DataResto;
 
 import Restaurant.Meal;
-import Restaurant.Personnel;
 import Restaurant.Restaurant;
 
 /**
@@ -30,9 +30,9 @@ public class TestDataRetsto {
 		
 		
 		//register a new personnel
-		Personnel chef=new Personnel("chef", "imchef");
+		User.Personnel chef=new User.Personnel("chef", "imchef");
 		DataResto.verify(Restaurants,chef.getUsername() );
-		DataResto.Register(Restaurants, "Antony",chef );
+		//DataResto.Register(Restaurants, "Antony",chef );
 		
 		//register a new restaurant	
 		DataResto.verifyResto(Restaurants, "CHEZ LILY");

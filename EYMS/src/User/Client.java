@@ -85,12 +85,12 @@ public class Client extends User implements ClientObserver{
 
 	public Client() {
 		super();
-<<<<<<< HEAD
-=======
-		this.login = new LoginClient();
-		this.register = new RegisterClient();
-		this.fidelityCard = new BasicFidelityCard();
->>>>>>> 64b066b74918337b65dc7a82db04b4322fbd28d3
+//<<<<<<< HEAD
+//=======
+//		this.login = new LoginClient();
+//		this.register = new RegisterClient();
+//		this.fidelityCard = new BasicFidelityCard();
+//>>>>>>> 64b066b74918337b65dc7a82db04b4322fbd28d3
 	}
 	
 
@@ -178,13 +178,13 @@ public class Client extends User implements ClientObserver{
 		this.email = new ArrayList<String>();
 		this.phone_number = new ArrayList<String>();
 		this.address = new ArrayList<String>();
-<<<<<<< HEAD
-		this.authorization=true;
-
-=======
-		this.login = new LoginClient();
-		this.register = new RegisterClient();
->>>>>>> 64b066b74918337b65dc7a82db04b4322fbd28d3
+//<<<<<<< HEAD
+//		this.authorization=true;
+//
+//=======
+//		this.login = new LoginClient();
+//		this.register = new RegisterClient();
+//>>>>>>> 64b066b74918337b65dc7a82db04b4322fbd28d3
 		this.fidelityCard = new BasicFidelityCard();
 		this.deliveryInfo=new ArrayList<Delivery> ();
 	}
@@ -196,7 +196,7 @@ public class Client extends User implements ClientObserver{
 	public Client(FidelityCardVisitor fidelityCard){
 		super();
 		this.fidelityCard = fidelityCard;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		this.authorization=true;
 
 	}
@@ -210,14 +210,13 @@ public class Client extends User implements ClientObserver{
 		this.phone_number.add(new_deliveryInfo.getPhonenumber());
 	}
 
-=======
-		this.login = new LoginClient();
-		this.register = new RegisterClient();
-	}
+//=======
+//		this.login = new LoginClient();
+//		this.register = new RegisterClient();
+//	}
+//	
 	
 	
-	
->>>>>>> 64b066b74918337b65dc7a82db04b4322fbd28d3
 	
 	
 	public void addPoint(int points){
