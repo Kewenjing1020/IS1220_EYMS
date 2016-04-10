@@ -40,7 +40,7 @@ public class Delivery implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Delivery [contactname=" + contactname + ", phonenumber=" + phonenumber + ", adress=" + adress + "]";
+		return "Delivery <contactname=" + contactname + ", phonenumber=" + phonenumber + ", adress=" + adress + ">";
 	}
 
 

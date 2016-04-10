@@ -17,7 +17,7 @@ public class DataOrder {
 
 	public static void Save_Order(Order e){
 		ArrayList<Order> Orders=new ArrayList<Order>();
-		Load_OrderData();
+		Orders=Load_OrderData();
 		Orders.add(e);
 		Log_OrderData(Orders);
 	}
@@ -36,7 +36,7 @@ public class DataOrder {
 			new File("Order_database.txt").delete();
             Serializer.serialize(Orders, "Order_database.txt");
             System.out.println("succed in loging the new Order database");
-            System.out.println(Orders);
+           // System.out.println(Orders);
           
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,7 +58,7 @@ public class DataOrder {
              */
 			Orders = (ArrayList<Order>) Serializer.deserialize("Order_database.txt");
             System.out.println("succed in loading the new Order database");
-            System.out.println(Orders);
+           // System.out.println(Orders);
           
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

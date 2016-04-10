@@ -1,11 +1,13 @@
 package CLUI;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import DataBase.DataClient;
+import DataBase.DataOrder;
 import DataBase.DataResto;
 import FidelityCard.LotteryFidelityCard;
 import FidelityCard.PointFidelityCard;
@@ -80,35 +82,52 @@ public class CommandClient {
 		Meal curr_meal=new Meal();
 		
 		
-		System.out.println("please choose a meal \n "
-				+ "type in the form of: selectResto < mealName, quantity>, quantity should be integer");
-		answer = typein.readLine();
-		String[] cmdline=answer.split(delim);
-		if(  cmdline[0].equals("mealName") && CL_clientLogin.isNumeric(cmdline[2])  
-				&& Restaurant.findMealName(cmdline[0], curr_resto.getMeals())
-				){	
-			
-		}
-		//selectResto < mealName, quantity>
-		curr_meal=curr_resto.findMealCorrespond(cmdline[1]);
-		curr_meal=curr_resto.selectMeal(curr_meal, Integer.parseInt(cmdline[2]));
+//		System.out.println("please choose a meal \n "
+//				+ "type in the form of: selectResto < mealName, quantity>, quantity should be integer");
+//		answer = typein.readLine();
+//		String[] cmdline=answer.split(delim);
+//		if(  cmdline[0].equals("mealName") && CL_clientLogin.isNumeric(cmdline[2])  
+//				&& Restaurant.findMealName(cmdline[0], curr_resto.getMeals())
+//				){	
+//			
+//		}
+//		//selectResto < mealName, quantity>
+//		curr_meal=curr_resto.findMealCorrespond(cmdline[1]);
+//		curr_meal=curr_resto.selectMeal(curr_meal, Integer.parseInt(cmdline[2]));
+//		
+//
+//		//currentMeal<>
+//		System.out.println(curr_meal);
+//		
+//		//saveMeal<>
+//		curr_order.saveMeal(curr_meal);
+//		
+//		System.out.println("type in the form of: addPersonalization< Personalization demands> ");
+//		answer = typein.readLine();
+//		//addPersonalization
+//		curr_order.setPersonalization(answer);
 		
-
-		//currentMeal<>
-		System.out.println(curr_meal);
-		
-		//saveMeal<>
-		curr_order.saveMeal(curr_meal);
-		
-		
-		//addperson
-		setPersonalization(String personalization)
-		
+		//add delivery
+//		System.out.println("this is your delivery information stocked in the system ");
+//		System.out.println(curr_client.getDeliveryInfo());
+//		System.out.println("please choose or add a delivery information to this order");
+//		System.out.println("in the form of : Delivery <contactname, phonenumber, adress");
+//		answer = typein.readLine();
+//		String[] cmdline=answer.split("[,<>]+");
+//		curr_order.setDelivery_info(cmdline[1], cmdline[2], cmdline[3]);
+//		System.out.println(curr_order.getDelivery_info());
+//		
 		//check
 		curr_order.check();
+		System.out.println(curr_order);
+		
+		//save the order to the database	
+		DataOrder.Save_Order(curr_order);
+		DataOrder.Load_OrderData();
 		
 		//refresh stock
 		curr_resto.refreshStock(curr_order.getMeal_list());
+		System.out.println(curr_resto);
 	}
 }
 			

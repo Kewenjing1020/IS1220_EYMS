@@ -54,21 +54,21 @@ public class Order implements Serializable{
 	
 
 
-//	public void selectMeal(Meal e,int qty){
-//		if (e.stock>=qty){
-//			e.quantity=qty;
-//			e.stock-=qty;
-//			meal_list.add(e);
-//			System.out.println(e.quantity+ " shares of "+ e.getDish_name()+" in your cart now");
-//			
-//		}
-//		else if(e.stock==0){
-//			System.out.println("this meal is sold out ");
-//		}else{
-//			System.out.println("there are "+ e.stock+"shares in stock, please change the quantity you need");
-//		}
-//		
-//	}
+	public void selectMeal(Meal e,int qty){
+		if (e.stock>=qty){
+			e.quantity=qty;
+			e.stock-=qty;
+			meal_list.add(e);
+			System.out.println(e.quantity+ " shares of "+ e.getDish_name()+" in your cart now");
+			
+		}
+		else if(e.stock==0){
+			System.out.println("this meal is sold out ");
+		}else{
+			System.out.println("there are "+ e.stock+"shares in stock, please change the quantity you need");
+		}
+		
+	}
 	
 	public void saveMeal(Meal e){
 		this.meal_list.add(e);
@@ -127,9 +127,7 @@ public class Order implements Serializable{
 	}
 
 	public void setDelivery_info(String contactname, String phonenumber, String adress) {
-		this.delivery_info.setContactname(contactname) ;
-		this.delivery_info.setAdress(adress);
-		this.delivery_info.setPhonenumber(phonenumber);
+		this.delivery_info=new Delivery(contactname, phonenumber, adress);
 	}
 	
 	

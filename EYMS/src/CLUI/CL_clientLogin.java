@@ -168,7 +168,7 @@ public class CL_clientLogin {
 				+ "addContactInfo<email, phonenumber> \n");
 	}
 	/**
-	 * 
+	 * addContactInfo<email, phonenumber> 
 	 * @param curr_client
 	 * @return
 	 * @throws IOException
