@@ -46,9 +46,9 @@ public class CL_clientOrder {
 	public static void selectMeal_start(Order curr_order){
 		System.out.println("please choose a meal \n "
 				+ "type in the form of: selectMeal < mealName, quantity>, quantity should be integer");
-		if(!curr_order.getMeal_list().equals(null)){
-			System.out.println("or type in: skip, to next step ");
-		}
+//		if(curr_order.getMeal_list().size()!=0){
+//			System.out.println("or type in: skip, to next step ");
+//		}
 		
 	}
 	public static Meal selectMeal(Restaurant curr_resto, Order curr_order) throws IOException{

@@ -1,17 +1,12 @@
 package CLUI;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import DataBase.DataClient;
-import DataBase.DataOrder;
 import DataBase.DataResto;
-import FidelityCard.LotteryFidelityCard;
-import FidelityCard.PointFidelityCard;
-import Restaurant.Meal;
 import Restaurant.MealNotFoundException;
 import Restaurant.Order;
 import Restaurant.Restaurant;
@@ -29,7 +24,9 @@ public class CommandClient {
 		BufferedReader typein = new BufferedReader(new InputStreamReader(System.in));
 		
 		ArrayList<Client> all_clients= DataClient.Load_ClientData();
-
+		ArrayList<Restaurant> all_Resto=DataResto.Load_RestoData();
+		
+		
 		Client curr_client=new Client();
 		
 		String answer = new String();
@@ -62,7 +59,7 @@ public class CommandClient {
 		/**
 		 * step 2: order a meal
 		 */
-		ArrayList<Restaurant> all_Resto=DataResto.Load_RestoData();
+		
 		Restaurant curr_resto=new Restaurant();
 		DataResto.print_RestoInfo_All(all_Resto);
 		Order curr_order=new Order(curr_client.getUser_name());
@@ -71,30 +68,28 @@ public class CommandClient {
 		CL_clientOrder.selectResto_start();
 		curr_resto=CL_clientOrder.selectResto(all_Resto, curr_resto);
 
-//		//delete after test
-//		curr_resto=all_Resto.get(0);
-//		System.out.println(curr_resto);
-//		
 		//choose a meal
 		curr_order=CL_clientOrder.addMeal(curr_resto,curr_order);
 		
-//		//addPersonalization
-//		CL_clientOrder.addPersonalization_start();
-//		curr_order=CL_clientOrder.addPersonalization(curr_order);
-//		
-//		//add delivery
-//		CL_clientOrder.addDelivery_start(curr_client);
-//		curr_order=CL_clientOrder.addDelivery(curr_order,curr_client);
-//		
+		//addPersonalization
+		CL_clientOrder.addPersonalization_start();
+		curr_order=CL_clientOrder.addPersonalization(curr_order);
+		
+		//add delivery
+		CL_clientOrder.addDelivery_start(curr_client);
+		curr_order=CL_clientOrder.addDelivery(curr_order,curr_client);
+		
 		
 		//check
 		
 		System.out.println(curr_order);
 		
-		
-		//save the order to the database	
-		DataOrder.Save_Order(curr_order);
-		DataOrder.Load_OrderData();
+		//refresh and save the database
+		DataResto.refresh_Data(curr_resto, all_Resto);
+		DataResto.Log_RestoData(all_Resto);
+		DataClient.refresh_clientdata(curr_client, all_clients);
+		DataClient.Log_ClientData(all_clients);
+
 		
 		System.out.println(curr_resto);
 	}

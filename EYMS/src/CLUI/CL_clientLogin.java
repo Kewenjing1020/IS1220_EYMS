@@ -129,7 +129,9 @@ public class CL_clientLogin {
 		String answer = typein.readLine();
 		String[] cmdline=answer.split(delim);
 		
-		if(cmdline[0].equals("associateCard")){
+		if(cmdline[0].equals("associateCard") && 
+				( cmdline[1].equals("BasicFidelityCard")||cmdline[1].equals("LotteryFidelityCard")
+						||	cmdline[1].equals("PointFidelityCard"))){
 			switch (cmdline[1]){
 				case "BasicFidelityCard":{
 					break;
