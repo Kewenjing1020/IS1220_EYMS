@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 
 import User.Client;
 
+/**
+ * seperate the interface into two parts: CL_Client and CL_Resto
+ * @author kewenjing
+ *
+ */
 public class CommandMain {
 
 

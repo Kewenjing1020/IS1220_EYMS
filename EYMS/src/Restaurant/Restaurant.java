@@ -45,6 +45,14 @@ public class Restaurant implements Serializable{
 		this.users=new ArrayList<Personnel>();
 	}
 
+	
+	public void printMenuForClient(){
+		System.out.println("Restaurant : "+ this.Resto_name);
+		for(int j=0; j<this.getMeals().size();j++){
+			Meal e=this.getMeals().get(j);
+			System.out.println("mealname:"+e.getDish_name()+"  price:"+e.getPrice()+"   special price:"+ e.getSpecial_price()+ "   stock:"+e.getStock()+"  \nIngredient detail: "+e.getIngredient_detail()+"");
+		}
+	}
 
 	/*
 	 * Getters and Setters
@@ -87,6 +95,8 @@ public class Restaurant implements Serializable{
 		this.meals=new ArrayList<Meal>();
 		this.users=new ArrayList<Personnel>();
 	}
+	
+	
 
 	public void insertChef(String firstName,String lastName, String username, String password){
 		Personnel chef=new Personnel(firstName, lastName, username, password);
@@ -120,11 +130,11 @@ public class Restaurant implements Serializable{
 		System.out.println("succed in add this meal");
 		return e;
 	}
-	
-	public Meal addIngredient (Meal e,String ingredientDetail){
-		e.setIngredient_detail(ingredientDetail);
-		return e;
-	}
+//	
+//	public Meal addIngredient (Meal e,String ingredientDetail){
+//		e.setIngredient_detail(ingredientDetail);
+//		return e;
+//	}
 	
 	public void putInSpecialOffer(String mealName, Double price){
 		for(int i=0; i<this.meals.size();i++){
@@ -136,9 +146,32 @@ public class Restaurant implements Serializable{
 		
 	}
 	
-	public Meal findMealCorrespond(String mealName) throws MealNotFoundException{
+	public Meal selectMeal(Meal e,int qty){
+		if (e.stock>=qty){
+			e.quantity=qty;
+			e.stock-=qty;
+			System.out.println(e.quantity+ " shares of "+ e.getDish_name()+" in your cart now");
+		}
+		else if(e.stock==0){
+			System.out.println("this meal is sold out ");
+		}else{
+			System.out.println("there are "+ e.stock+"shares in stock, please change the quantity you need");
+		}
+		return e;
+		
+	}
+	
+	public static Boolean findMealName(String mealName,ArrayList<Meal> mealList){
+		for(int i=0; i<mealList.size();i++){
+			if(mealList.get(i).getDish_name().equals(mealName)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public Meal findMealCorrespond(String mealName) {
 		Meal e =new Meal();
-		try{
 			int count =0;
 			for(int i=0; i<this.meals.size();i++){
 				if(this.getMeals().get(i).getDish_name().equals(mealName)){
@@ -148,14 +181,25 @@ public class Restaurant implements Serializable{
 				}
 			}
 			if (count==0){
-				throw new MealNotFoundException();
-			}	
-		}finally{
-			
-		}
+				System.out.println("this meal doesn't in the meal list");
+			}
+	
 		return e;
 		
 	}
+	
+	public Restaurant refreshStock(ArrayList<Meal> meal_list){
+		for(int i=0; i<meal_list.size(); ++i){
+			for(int j=0; j<this.meals.size(); ++j){
+				if(this.meals.get(j).getDish_name().equals(meal_list.get(i).getDish_name())){
+					this.meals.get(j).setStock( meal_list.get(i).getStock() );
+					break;
+				}
+			}
+		}
+		return this;
+	}
+	
 	
 	public void removeFromSpecialOffer (String mealName) throws IOException{
 		BufferedReader typein = new BufferedReader(new InputStreamReader(System.in));
@@ -163,10 +207,6 @@ public class Restaurant implements Serializable{
 		try{
 			e=findMealCorrespond(mealName);
 			
-		}catch(MealNotFoundException excpt){
-			System.out.println("please type meal name");
-			mealName = typein.readLine();
-			removeFromSpecialOffer(mealName);
 		}
 		finally{
 			e.setSpecial_price((double) -1);

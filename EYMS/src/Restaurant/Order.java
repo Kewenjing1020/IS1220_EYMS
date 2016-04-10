@@ -54,24 +54,32 @@ public class Order implements Serializable{
 	
 
 
-	public void selectMeal(Meal e,int qty){
-		if (e.stock>=qty){
-			e.quantity=qty;
-			e.stock-=qty;
-			meal_list.add(e);
-			System.out.println(e.quantity+ " shares of "+ e.getDish_name()+" in your cart now");
-			
-		}
-		else if(e.stock==0){
-			System.out.println("this meal is sold out ");
-		}else{
-			System.out.println("there are "+ e.stock+"shares in stock, please change the quantity you need");
-		}
+//	public void selectMeal(Meal e,int qty){
+//		if (e.stock>=qty){
+//			e.quantity=qty;
+//			e.stock-=qty;
+//			meal_list.add(e);
+//			System.out.println(e.quantity+ " shares of "+ e.getDish_name()+" in your cart now");
+//			
+//		}
+//		else if(e.stock==0){
+//			System.out.println("this meal is sold out ");
+//		}else{
+//			System.out.println("there are "+ e.stock+"shares in stock, please change the quantity you need");
+//		}
+//		
+//	}
+	
+	public void saveMeal(Meal e){
+		this.meal_list.add(e);
 		
 	}
 	
+	
+	
 	public void remove_meal(Meal e){
 		meal_list.remove(e);
+		e.stock+=e.quantity;
 	}
 	
 
@@ -97,13 +105,13 @@ public class Order implements Serializable{
 	
 	/**
 	 * check out, calculate the total price
+	 * minimus the stock
 	 */
 	public void check(){
 		for(int i=0;i<this.getMeal_list().size();i++){
 			Meal curr_meal=this.getMeal_list().get(i);
 			this.tot_price += curr_meal.getPrice()*curr_meal.quantity;	
 		}
-		
 	}
 
 	public String getPersonalization() {

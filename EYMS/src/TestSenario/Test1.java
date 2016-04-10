@@ -109,13 +109,13 @@ public class Test1 {
 		e1.setSpecial_price((double) 4);
 		e1.setStock(10);
 		
-		Meal e2=new Meal("dish_name2", "ingredient_detail2", 5.5);
+		Meal e2=new Meal("dish_name2", "ingredient_detail2", 7.2);
 		e2.setSpecial_price((double) 4);
 		e2.setStock(20);
 		res1.createMeal(e1);
 		res1.createMeal(e2);
 		
-		Restaurant res2=new Restaurant("resto1", "resto_password");
+		Restaurant res2=new Restaurant("resto2", "resto_password");
 		res2.insertChef("chef1firstName", "chef1lastName", "chef1username", "chef1password");
 		res2.createMeal(e1);
 		res2.createMeal(e2);

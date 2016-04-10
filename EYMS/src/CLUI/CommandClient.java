@@ -6,13 +6,24 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import DataBase.DataClient;
+import DataBase.DataResto;
 import FidelityCard.LotteryFidelityCard;
 import FidelityCard.PointFidelityCard;
+import Restaurant.Meal;
+import Restaurant.MealNotFoundException;
+import Restaurant.Order;
+import Restaurant.Restaurant;
 import User.Client;
+
+/**
+ * 
+ * @author kewenjing
+ *
+ */
 
 public class CommandClient {
 	
-	public static void main(String [] args) throws IOException{
+	public static void main(String [] args) throws IOException, MealNotFoundException{
 		BufferedReader typein = new BufferedReader(new InputStreamReader(System.in));
 		String delim="[ ,<>()]+";
 		
@@ -23,42 +34,81 @@ public class CommandClient {
 		String answer = new String();
 			
 		
-		
 		/**
 		 * step 1: login/register
 		 */
-		while(true){	
-		System.out.println("Dear Sir/Miss, are you already registered in our site? (Y/N)");
-		answer = typein.readLine();
-		if(answer.equals("n")||answer.equals("N")){	
-			CL_clientLogin.Register_start(curr_client);
-			curr_client=CL_clientLogin.Register(all_clients,curr_client);
-			break;
-		}
-	
-		else if(answer.equals("Y")||answer.equals("y")){
-			CL_clientLogin.Login_start(curr_client);
-			curr_client=CL_clientLogin.Login(all_clients,curr_client);
-			System.out.println(curr_client);
-			break;
-		}else{
-			System.out.println("Invalid input");
-			continue;
-		}
-		}
+//		while(true){	
+//		System.out.println("Dear Sir/Miss, are you already registered in our site? (Y/N)");
+//		answer = typein.readLine();
+//		if(answer.equals("n")||answer.equals("N")){	
+//			CL_clientLogin.Register_start(curr_client);
+//			curr_client=CL_clientLogin.Register(all_clients,curr_client);
+//			break;
+//		}
+//	
+//		else if(answer.equals("Y")||answer.equals("y")){
+//			CL_clientLogin.Login_start(curr_client);
+//			curr_client=CL_clientLogin.Login(all_clients,curr_client);
+//			System.out.println(curr_client);
+//			break;
+//		}else{
+//			System.out.println("Invalid input");
+//			continue;
+//		}
+//		}
 		
+		//delete after test
 		curr_client=all_clients.get(0);
 		System.out.println(curr_client);
 		
 		/**
-		 * order a meal
+		 * step 2: order a meal
 		 */
+		ArrayList<Restaurant> all_Resto=DataResto.Load_RestoData();
+		Restaurant curr_resto=new Restaurant();
+		DataResto.print_RestoInfo_All(all_Resto);
+		Order curr_order=new Order(curr_client.getUser_name());
+		
+		//select a restaurant
+		CL_clientOrder.selectResto_start();
+		curr_resto=CL_clientOrder.selectResto(all_Resto, curr_resto);
+
+		//delete after test
+		curr_resto=all_Resto.get(0);
+		
+		//choose a meal
+		Meal curr_meal=new Meal();
 		
 		
+		System.out.println("please choose a meal \n "
+				+ "type in the form of: selectResto < mealName, quantity>, quantity should be integer");
+		answer = typein.readLine();
+		String[] cmdline=answer.split(delim);
+		if(  cmdline[0].equals("mealName") && CL_clientLogin.isNumeric(cmdline[2])  
+				&& Restaurant.findMealName(cmdline[0], curr_resto.getMeals())
+				){	
+			
+		}
+		//selectResto < mealName, quantity>
+		curr_meal=curr_resto.findMealCorrespond(cmdline[1]);
+		curr_meal=curr_resto.selectMeal(curr_meal, Integer.parseInt(cmdline[2]));
+		
+
+		//currentMeal<>
+		System.out.println(curr_meal);
+		
+		//saveMeal<>
+		curr_order.saveMeal(curr_meal);
 		
 		
+		//addperson
+		setPersonalization(String personalization)
 		
+		//check
+		curr_order.check();
 		
+		//refresh stock
+		curr_resto.refreshStock(curr_order.getMeal_list());
 	}
 }
 			

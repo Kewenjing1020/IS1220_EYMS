@@ -10,6 +10,13 @@ import FidelityCard.LotteryFidelityCard;
 import FidelityCard.PointFidelityCard;
 import User.Client;
 
+/**
+ * realize the command function component _ client login part
+ * every step, realize the loop by two function: the startfunction and bodyfunction
+ * in the body function, implement the the startfunction and bodyfunction
+ * @author kewenjing
+ *
+ */
 public class CL_clientLogin {
 	static String delim="[ ,<>()]+";
 	
@@ -22,7 +29,14 @@ public class CL_clientLogin {
 	
 	}
 	
-	
+	public static boolean isNumeric(String str){
+		  for (int i = str.length();--i>=0;){   
+		   if (!Character.isDigit(str.charAt(i))){
+		    return false;
+		   }
+		  }
+		  return true;
+		 }
 	
 	public static void Login_start(Client curr_client) throws IOException{
 		System.out.println("Please type in your login information in the form of: login <username, password>");

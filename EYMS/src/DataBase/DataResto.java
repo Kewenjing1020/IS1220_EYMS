@@ -16,41 +16,38 @@ import Restaurant.Restaurant;
 public class DataResto {
 	
 
-	public static String filePath="Users/Lucas/workspace/EYMS";
-
-	
-	public static void main(String [] args) throws IOException{
-		Restaurant res1=new Restaurant("CHEZ LILY");
-		Restaurant res2=new Restaurant("Antony");
-		ArrayList<Restaurant> Restaurants=new ArrayList<Restaurant>();
-		Restaurants.add(res1);
-		Restaurants.add(res2);
-		System.out.println(Restaurants);
-		Log_RestoData(Restaurants);
-		
-		
-		//register a new personnel
-		User.Personnel chef=new User.Personnel("chef", "imchef");
-		verify(Restaurants,chef.getUsername() );
-		Register(Restaurants, "Antony",chef );
-		
-		//register a new restaurant	
-		verifyResto(Restaurants, "CHEZ LILY");
-		Restaurant res3=new Restaurant("WATHER");
-		RegisterResto(Restaurants, res3);
-		
-		Meal e=new Meal("snack","tomato",3.5);
-		res2.createMeal(e);
-		print_RestoInfo(res2);
-		
-		//Login a personnel
-		Login(Restaurants, "chef", "imchef");
-		
-		refresh_Data(res2, Restaurants);
-		Log_RestoData(Restaurants);
-		
-	}
-	
+//	public static void main(String [] args) throws IOException{
+//		Restaurant res1=new Restaurant("CHEZ LILY");
+//		Restaurant res2=new Restaurant("Antony");
+//		ArrayList<Restaurant> Restaurants=new ArrayList<Restaurant>();
+//		Restaurants.add(res1);
+//		Restaurants.add(res2);
+//		System.out.println(Restaurants);
+//		Log_RestoData(Restaurants);
+//		
+//		
+//		//register a new personnel
+//		User.Personnel chef=new User.Personnel("chef", "imchef");
+//		verify(Restaurants,chef.getUsername() );
+//		Register(Restaurants, "Antony",chef );
+//		
+//		//register a new restaurant	
+//		verifyResto(Restaurants, "CHEZ LILY");
+//		Restaurant res3=new Restaurant("WATHER");
+//		RegisterResto(Restaurants, res3);
+//		
+//		Meal e=new Meal("snack","tomato",3.5);
+//		res2.createMeal(e);
+//		print_RestoInfo(res2);
+//		
+//		//Login a personnel
+//		Login(Restaurants, "chef", "imchef");
+//		
+//		refresh_Data(res2, Restaurants);
+//		Log_RestoData(Restaurants);
+//		
+//	}
+//	
 	
 
 
@@ -169,6 +166,19 @@ public class DataResto {
 		
 	}
 	
+	public static Boolean tryfind_resto(ArrayList<Restaurant> All_Restaurants, String resto_name){
+		Restaurant curr_resto=new Restaurant();
+		for(int i=0; i<All_Restaurants.size();i++ ){
+			curr_resto=(Restaurant)All_Restaurants.get(i);
+				if(curr_resto.getResto_name().equals(resto_name)){
+					return true;	
+			}
+		}
+		System.out.println("error: fail to find this restaurant:"+resto_name);
+		return false;
+		
+	}
+	
 	
 	/**
 	 * to make sure the username of the personnel is unique
@@ -256,7 +266,17 @@ public class DataResto {
 		return null;
 	}
 	
+	public static void print_RestoInfo_All(ArrayList<Restaurant> All_Restaurants){
 	
+		for(int i=0; i<All_Restaurants.size();i++ ){
+			Restaurant curr_resto=All_Restaurants.get(i);
+			System.out.println(curr_resto.getResto_name());
+			for(int j=0; j<curr_resto.getMeals().size();j++){
+				Meal e=curr_resto.getMeals().get(j);
+				System.out.println(e.getDish_name()+"  "+e.getPrice()+"  "+e.getIngredient_detail());
+			}
+		}
+	}
 	
 	/**
 	 * print this client's favorite meals
