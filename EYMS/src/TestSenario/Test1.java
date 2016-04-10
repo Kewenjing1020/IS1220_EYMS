@@ -21,6 +21,38 @@ import User.Client;
  *
  */
 
+/**
+ * succed in loging the new All_clients database
+ * 
+[Client [user_name=user_name1, first_name=first_name1, last_name=last_name1, password=password1, 
+authorization=true, birthday=06/01, fidelityCard=BasicFidelityCard, 
+contacter_names=[last_name1 first_name1, contactname1], 
+email=[new_email1, new_email2], phone_number=[new_phone_number1, new_phone_number2, phonenumber3], 
+address=[address1, address2, adress3], 
+deliveryInfo=[Delivery [contactname=contactname1, phonenumber=phonenumber3, adress=adress3]], 
+favorite_meals=null], 
+
+Client [user_name=user_name2, first_name=first_name2, last_name=last_name2, password=password2, 
+authorization=true, birthday=07/02, fidelityCard=PointFidelityCard [point=0], 
+contacter_names=[last_name2 first_name2, contactname1], email=[new_email1, new_email2], 
+phone_number=[new_phone_number1, new_phone_number2, phonenumber3], 
+address=[address1, address2, adress3], 
+deliveryInfo=[Delivery [contactname=contactname1, phonenumber=phonenumber3, adress=adress3]], 
+favorite_meals=null], Client [user_name=user_name3, first_name=first_name3, last_name=last_name3, password=password3, authorization=true, birthday=07/03, fidelityCard=BasicFidelityCard, contacter_names=[last_name3 first_name3], email=[], phone_number=[], address=[], deliveryInfo=[], favorite_meals=null], Client [user_name=user_name4, first_name=first_name4, last_name=last_name4, password=password4, authorization=true, birthday=08/04, fidelityCard=PointFidelityCard [point=0], contacter_names=[last_name4 first_name4], email=[], phone_number=[], address=[], deliveryInfo=[], favorite_meals=null]]
+true
+
+succed in loging the new Al_Restaurant database
+
+[Restaurant [Resto_name=resto1, password=resto_password, 
+users=[Personnel [user_name=chef1username, first_name=chef1firstName, last_name=chef1lastName, password=chef1password]], 
+meals=[Meal:dish_name1, ingredient_detail=ingredient_detail1, price=5.5, special_price=4.0, stock=10, quantity need for client=1, 
+Meal:dish_name2, ingredient_detail=ingredient_detail2, price=5.5, special_price=4.0, stock=20, quantity need for client=1
+]]]
+
+ * @author kewenjing
+ *
+ */
+
 public class Test1 {
 	
 	
