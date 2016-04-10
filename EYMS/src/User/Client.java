@@ -24,7 +24,7 @@ public class Client extends User implements ClientObserver{
 	//I have suppressed the attribute point because it is include to fidelity card
 	//furthermore all client doesn't have point, only those you have the PointFidelityCard
 	//private int points;
-	private Boolean authorization = false;
+	private Boolean authorization = true;
 	private String birthday = " ";
 	private FidelityCardVisitor fidelityCard;
 
@@ -76,18 +76,6 @@ public class Client extends User implements ClientObserver{
 		Double price = this.fidelityCard.getPriceVisit(meal);
 		return price;
 	}
-	
-	/**
-	 * toString method
-	 */
-
-	@Override
-	public String toString() {
-		return "Customer [user_name=" + user_name + ", password=" + password + ", first_name=" + first_name
-				+ ", last_name=" + last_name + ", fidelityCard=" + fidelityCard + ", email=" + email + ", phone_number="
-				+ phone_number + ", address=" + address + ", favorite_meals=" + favorite_meals + "]";
-	}
-
 
 
 	/**
@@ -102,6 +90,33 @@ public class Client extends User implements ClientObserver{
 	}
 
 
+
+	@Override
+	public String toString() {
+		return "Client [user_name=" + user_name + ", first_name=" + first_name + ", last_name=" + last_name
+				+ ", password=" + password + ", authorization=" + authorization + ", birthday=" + birthday + ", fidelityCard=" + fidelityCard
+				+ ", contacter_names=" + contacter_names + ", email=" + email + ", phone_number=" + phone_number
+				+ ", address=" + address + ", favorite_meals=" + favorite_meals + "]";
+	}
+
+	
+	
+	public Client(String user_name, String password, String first_name, String last_name,Boolean authorization, String birthday, FidelityCardVisitor fidelityCard) {
+		super();
+		this.authorization = authorization;
+		this.birthday = birthday;
+		this.fidelityCard = fidelityCard;
+		this.user_name = user_name;
+		this.password = password;
+		this.first_name =first_name;
+		this.last_name = last_name;
+		this.email = new ArrayList<String>();
+		this.phone_number = new ArrayList<String>();
+		this.address = new ArrayList<String>();
+		this.authorization=true;
+		this.contacter_names=new ArrayList<String>();
+		contacter_names.add(last_name+" "+first_name);
+	}
 
 	/**
 	 * @param user_name
@@ -210,6 +225,10 @@ public class Client extends User implements ClientObserver{
 	
 	public void add_favorite_meal(Meal meal){
 		this.favorite_meals.add(meal);
+	}
+	
+	public void add_contactname(String contactName){
+		this.contacter_names.add(contactName);
 	}
 	
 

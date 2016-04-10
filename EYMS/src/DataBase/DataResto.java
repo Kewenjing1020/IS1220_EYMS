@@ -1,10 +1,8 @@
 package DataBase;
 
-import java.io.BufferedOutputStream;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import Restaurant.Meal;
@@ -18,7 +16,10 @@ import Restaurant.Restaurant;
  */
 public class DataResto {
 	
+<<<<<<< HEAD
 	public static String filePath="D:/Cours_Centrale/2A/Software_Ingeneering/Project/EYMS";
+=======
+>>>>>>> 98f60a1f23413e5576ef0608f181e36e9191d7f5
 	
 	public static void main(String [] args) throws IOException{
 		Restaurant res1=new Restaurant("CHEZ LILY");
@@ -81,7 +82,7 @@ public class DataResto {
             /**
              * Deserializing the object
              */
-            all_Resto = (ArrayList<Restaurant>) Serializer.deserialize(filePath+"Restaurant_database.txt");
+            all_Resto = (ArrayList<Restaurant>) Serializer.deserialize("Restaurant_database.txt");
             System.out.println("succed in loading the new All_resto database");
             System.out.println(all_Resto);
           
@@ -104,9 +105,9 @@ public class DataResto {
             /**
              *  Serializing the object
              */
-			boolean delete=new File(filePath+"Restaurant_database.txt").delete();
+			boolean delete=new File("Restaurant_database.txt").delete();
 			System.out.println(delete);
-            Serializer.serialize(Restaurants, filePath+"Restaurant_database.txt");
+            Serializer.serialize(Restaurants, "Restaurant_database.txt");
 			
 	        
             System.out.println("succed in loging the new Al_Restaurant database");
