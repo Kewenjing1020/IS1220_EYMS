@@ -24,7 +24,7 @@ public class Client extends User implements ClientObserver{
 	//I have suppressed the attribute point because it is include to fidelity card
 	//furthermore all client doesn't have point, only those you have the PointFidelityCard
 	//private int points;
-	private Boolean authorization = true;
+	private Boolean authorization = false;
 	private String birthday = " ";
 	private FidelityCardVisitor fidelityCard;
 
@@ -83,7 +83,6 @@ public class Client extends User implements ClientObserver{
 	 */
 	public Client() {
 		super();
-		this.authorization= true;
 		this.login = new LoginClient();
 		this.register = new RegisterClient();
 		this.fidelityCard = new BasicFidelityCard();
@@ -129,7 +128,6 @@ public class Client extends User implements ClientObserver{
 		this.email = new ArrayList<String>();
 		this.phone_number = new ArrayList<String>();
 		this.address = new ArrayList<String>();
-		this.authorization= true;
 		this.contacter_names=new ArrayList<String>();
 		this.login = new LoginClient();
 		this.register = new RegisterClient();
@@ -153,7 +151,6 @@ public class Client extends User implements ClientObserver{
 		this.email = new ArrayList<String>();
 		this.phone_number = new ArrayList<String>();
 		this.address = new ArrayList<String>();
-		this.authorization=true;
 		this.contacter_names=new ArrayList<String>();
 		contacter_names.add(last_name+" "+first_name);
 		this.login = new LoginClient();
@@ -176,7 +173,6 @@ public class Client extends User implements ClientObserver{
 		this.email = new ArrayList<String>();
 		this.phone_number = new ArrayList<String>();
 		this.address = new ArrayList<String>();
-		this.authorization=true;
 		this.login = new LoginClient();
 		this.register = new RegisterClient();
 		this.fidelityCard = new BasicFidelityCard();
@@ -189,10 +185,13 @@ public class Client extends User implements ClientObserver{
 	public Client(FidelityCardVisitor fidelityCard){
 		super();
 		this.fidelityCard = fidelityCard;
-		this.authorization=true;
 		this.login = new LoginClient();
 		this.register = new RegisterClient();
 	}
+	
+	
+	
+	
 	
 	public void addPoint(int points){
 		this.fidelityCard.point += points;		

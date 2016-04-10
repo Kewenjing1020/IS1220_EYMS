@@ -21,10 +21,9 @@ import User.*;
  */
 public class DataClient{
 		
-<<<<<<< HEAD
-	public static String filePath="D:/Cours_Centrale/2A/Software_Ingeneering/Project/EYMS";
-=======
->>>>>>> 98f60a1f23413e5576ef0608f181e36e9191d7f5
+
+	public static String filePath="Users/Lucas/workspace/EYMS";
+
 	
 	public static void main(String [] args){
 		ArrayList<Client> clients=new ArrayList<Client>();

@@ -16,6 +16,9 @@ import User.Client;
 
 /**
  * JUnit Test for the start up scenario
+ * If you have problem with this test it's probably because 
+ * you have to change the file path in DataClient and DataResto
+ * 
  * @author Lucas
  *
  */
@@ -33,9 +36,12 @@ public class StartupScenarioTest {
 		DataResto.Log_RestoData(restaurants);
 		
 		ArrayList<Client> clients=new ArrayList<Client>();
-		clients.add(new Client("emma","12345"));
+		Client emma = new Client("emma","12345");
+		emma.setAuthorization(true);
+		clients.add(emma);
 		//emma will be notified for special price offer only
 		Client alexia = new Client("alexia","1649832","10/04/2016");
+		alexia.setAuthorization(true);
 		//alexia will be notified also for her birthday at the initialisation of the system
 		clients.add(alexia);
 		DataClient.Log_ClientData(clients);

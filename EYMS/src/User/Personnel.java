@@ -1,6 +1,6 @@
 package User;
 
-public class Personnel extends User implements Runnable{
+public class Personnel extends User{
 	
 	/**
 	 * 
@@ -9,14 +9,8 @@ public class Personnel extends User implements Runnable{
 
 	public Personnel(String username, String password) {
 		super(username, password);
-		// TODO Auto-generated constructor stub
 	}
 
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
