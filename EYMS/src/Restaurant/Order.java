@@ -51,9 +51,6 @@ public class Order implements Serializable{
 	}
 
 
-	
-
-
 	public void selectMeal(Meal e,int qty){
 		if (e.stock>=qty){
 			e.quantity=qty;
@@ -109,8 +106,8 @@ public class Order implements Serializable{
 	 */
 	public void check(){
 		for(int i=0;i<this.getMeal_list().size();i++){
-			Meal curr_meal=this.getMeal_list().get(i);
-			this.tot_price += curr_meal.getPrice()*curr_meal.quantity;	
+			Meal this_meal=this.getMeal_list().get(i);
+			this.tot_price += this_meal.getPrice()*this_meal.quantity;	
 		}
 	}
 
